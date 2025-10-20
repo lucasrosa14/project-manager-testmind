@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'projects',
     'bugs',
     'corsheaders',
+    'rest_framework',
 ]
 
 AUTH_USER_MODEL = 'users.User'
@@ -77,3 +78,13 @@ CORS_ALLOW_ALL_ORIGINS = True
 DEBUG = True
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+    ],
+}

@@ -3,6 +3,13 @@ from django.contrib.auth.decorators import login_required
 from .forms import BugForm
 from .models import Bug
 from projects.models import Project
+from rest_framework import viewsets
+from .serializers import BugSerializer
+
+class BugViewSet(viewsets.ModelViewSet):
+    queryset = Bug.objects.all().order_by('-created_at')
+    serializer_class = BugSerializer
+
 
 @login_required
 def bug_create(request, project_pk):

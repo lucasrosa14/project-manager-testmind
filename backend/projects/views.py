@@ -4,6 +4,12 @@ from .models import Project
 from .forms import ProjectForm
 from django.views.decorators.http import require_POST
 from django.http import JsonResponse
+from rest_framework import viewsets
+from .serializers import ProjectSerializer
+
+class ProjectViewSet(viewsets.ModelViewSet):
+    queryset = Project.objects.all().order_by('-created_at')
+    serializer_class = ProjectSerializer
 
 @login_required
 def project_list(request):
