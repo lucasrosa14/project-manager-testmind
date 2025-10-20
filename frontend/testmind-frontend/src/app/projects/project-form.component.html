@@ -1,0 +1,25 @@
+<form (ngSubmit)="save()">
+  <label>Nome do Projeto:</label>
+  <input type="text" [(ngModel)]="project.nome_projeto" name="nome_projeto" required />
+
+  <label>Cliente:</label>
+  <select [(ngModel)]="project.client" name="client" required>
+    <option *ngFor="let client of clients" [ngValue]="client">{{ client.name }}</option>
+  </select>
+
+  <label>Data Início:</label>
+  <input type="date" [(ngModel)]="project.data_inicio" name="data_inicio" required />
+
+  <label>Data Fim:</label>
+  <input type="date" [(ngModel)]="project.data_fim" name="data_fim" required />
+
+  <label>Status:</label>
+  <select [(ngModel)]="project.status_projeto" name="status_projeto">
+    <option value="AGUARDANDO">Aguardando Início</option>
+    <option value="EM_EXECUCAO">Em Execução</option>
+    <option value="CONCLUIDO">Concluído</option>
+    <option value="CANCELADO">Cancelado</option>
+  </select>
+
+  <button type="submit">{{ isEdit ? 'Atualizar' : 'Criar' }}</button>
+</form>

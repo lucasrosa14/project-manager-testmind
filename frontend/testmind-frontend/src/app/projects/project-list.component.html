@@ -1,0 +1,29 @@
+<div *ngIf="loading">Carregando projetos...</div>
+<div *ngIf="error">{{ error }}</div>
+
+<table *ngIf="!loading && !error">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Cliente</th>
+      <th>Início</th>
+      <th>Fim</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects">
+      <td>{{ project.nome_projeto }}</td>
+      <td>{{ project.client?.name }}</td>
+      <td>{{ project.data_inicio }}</td>
+      <td>{{ project.data_fim }}</td>
+      <td>{{ project.status_atual }}</td>
+      <td>
+        <a [routerLink]="['/projects', project.id]">Detalhes</a>
+        <a [routerLink]="['/projects/edit', project.id]">Editar</a>
+        <button (click)="deleteProject(project.id)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,25 @@
+<div *ngIf="loading">Carregando bugs...</div>
+<div *ngIf="error">{{ error }}</div>
+
+<table *ngIf="!loading && !error">
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Projeto</th>
+      <th>Status</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bug of bugs">
+      <td>{{ bug.title }}</td>
+      <td>{{ bug.project }}</td>
+      <td>{{ bug.status }}</td>
+      <td>
+        <a [routerLink]="['/bugs', bug.id]">Detalhes</a>
+        <a [routerLink]="['/bugs/edit', bug.id]">Editar</a>
+        <button (click)="deleteBug(bug.id)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

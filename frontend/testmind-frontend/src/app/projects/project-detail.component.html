@@ -1,0 +1,14 @@
+<h2>Detalhes do Projeto</h2>
+<div *ngIf="project">
+  <p><strong>Código:</strong> {{ project.codigo_projeto }}</p>
+  <p><strong>Nome:</strong> {{ project.nome_projeto }}</p>
+  <p><strong>Cliente:</strong> {{ project.client.name }}</p>
+  <p><strong>Tipo de Sistema:</strong> {{ project.tipo_sistema }}</p>
+  <p><strong>Ambiente:</strong> {{ project.environment }}</p>
+  <p><strong>Plano Contratado:</strong> {{ project.plano_contratado }}</p>
+  <p><strong>Opção do Plano:</strong> {{ project.plano_opcao }}</p>
+  <p><strong>Horas Contratadas:</strong> {{ project.horas_contratadas }}</p>
+  <p><strong>Data Início:</strong> {{ project.data_inicio }}</p>
+  <p><strong>Data Fim:</strong> {{ project.data_fim }}</p>
+  <p><strong>Status Atual:</strong> {{ project.status_atual }}</p>
+</div>

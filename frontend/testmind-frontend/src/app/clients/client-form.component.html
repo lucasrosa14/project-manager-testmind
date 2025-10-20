@@ -1,0 +1,12 @@
+<form (ngSubmit)="save()">
+  <label>Nome:</label>
+  <input type="text" [(ngModel)]="client.name" name="name" required />
+
+  <label>Email:</label>
+  <input type="email" [(ngModel)]="client.contact_email" name="contact_email" required />
+
+  <label>Telefone:</label>
+  <input type="text" [(ngModel)]="client.contact_phone" name="contact_phone" />
+
+  <button type="submit">{{ isEdit ? 'Atualizar' : 'Criar' }}</button>
+</form>

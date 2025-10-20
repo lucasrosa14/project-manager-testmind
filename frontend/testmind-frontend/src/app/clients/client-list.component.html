@@ -1,0 +1,25 @@
+<div *ngIf="loading">Carregando clientes...</div>
+<div *ngIf="error">{{ error }}</div>
+
+<table *ngIf="!loading && !error">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Telefone</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let client of clients">
+      <td>{{ client.name }}</td>
+      <td>{{ client.contact_email }}</td>
+      <td>{{ client.contact_phone }}</td>
+      <td>
+        <a [routerLink]="['/clients', client.id]">Detalhes</a>
+        <a [routerLink]="['/clients/edit', client.id]">Editar</a>
+        <button (click)="deleteClient(client.id)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

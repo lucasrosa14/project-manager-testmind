@@ -1,0 +1,22 @@
+<form (ngSubmit)="save()">
+  <label>Título:</label>
+  <input type="text" [(ngModel)]="bug.title" name="title" required />
+
+  <label>Descrição:</label>
+  <textarea [(ngModel)]="bug.description" name="description"></textarea>
+
+  <label>Projeto:</label>
+  <select [(ngModel)]="bug.project" name="project" required>
+    <option *ngFor="let project of projects" [ngValue]="project.id">{{ project.nome_projeto }}</option>
+  </select>
+
+  <label>Status:</label>
+  <select [(ngModel)]="bug.status" name="status">
+    <option value="ABERTO">Aberto</option>
+    <option value="EM_PROGRESSO">Em Progresso</option>
+    <option value="RESOLVIDO">Resolvido</option>
+    <option value="FECHADO">Fechado</option>
+  </select>
+
+  <button type="submit">{{ isEdit ? 'Atualizar' : 'Criar' }}</button>
+</form>
